@@ -1,0 +1,475 @@
+import { motion } from 'framer-motion';
+import SectionTitle from '../components/SectionTitle';
+import Banner from '../components/Banner';
+import { FiArrowRight, FiUsers, FiDroplet, FiAward, FiBook, FiShield, FiHeart } from 'react-icons/fi';
+
+const Home = () => {
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8 } }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  };
+
+  const scaleUp = {
+    hidden: { scale: 0.9, opacity: 0 },
+    visible: { scale: 1, opacity: 1, transition: { duration: 0.6 } }
+  };
+
+  return (
+    <div className="pt-24">
+      <Banner />
+
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80')] bg-cover bg-center opacity-20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent"></div>
+          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
+        </div>
+
+        <motion.div 
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="container mx-auto px-6 z-10"
+        >
+          <motion.div variants={fadeInUp} className="max-w-2xl">
+            <motion.h1 
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Empowering Communities for <span className="text-blue-600">Sustainable</span> Development
+            </motion.h1>
+            <motion.p 
+              variants={fadeInUp} 
+              className="text-lg md:text-xl text-gray-600 mb-8"
+              transition={{ delay: 0.4 }}
+            >
+              The National Empowerment and Development Agency (NEADS) is committed to community development through sustainable and inclusive growth.
+            </motion.p>
+            <motion.div 
+              variants={fadeInUp}
+              className="flex flex-wrap gap-4"
+              transition={{ delay: 0.6 }}
+            >
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all shadow-lg flex items-center gap-2"
+              >
+                Our Projects <FiArrowRight />
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-full font-medium hover:bg-blue-50 transition-colors"
+              >
+                Learn More
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+
+        <motion.div 
+          animate={{ 
+            y: [0, -15, 0],
+            transition: { 
+              duration: 3, 
+              repeat: Infinity,
+              ease: "easeInOut"
+            }
+          }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        >
+          <div className="animate-bounce w-10 h-10 border-4 border-blue-600 rounded-full"></div>
+        </motion.div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          >
+            {[
+              { number: "50+", label: "Projects Completed", icon: <FiAward className="text-3xl" /> },
+              { number: "10K+", label: "People Empowered", icon: <FiUsers className="text-3xl" /> },
+              { number: "100+", label: "Communities Served", icon: <FiHeart className="text-3xl" /> },
+              { number: "5+", label: "Years of Service", icon: <FiShield className="text-3xl" /> }
+            ].map((stat, index) => (
+              <motion.div 
+                key={index}
+                variants={fadeInUp}
+                className="bg-gray-50 p-8 rounded-xl text-center"
+              >
+                <div className="text-blue-600 mb-4 flex justify-center">
+                  {stat.icon}
+                </div>
+                <h3 className="text-4xl font-bold text-gray-900 mb-2">{stat.number}</h3>
+                <p className="text-gray-600">{stat.label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <SectionTitle 
+            title="Who We Are" 
+            subtitle="PROFILE OF NATIONAL EMPOWERMENT AND DEVELOPMENT AGENCY"
+          />
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 gap-12 items-center mt-12"
+          >
+            <motion.div variants={fadeIn}>
+              <p className="text-lg text-gray-600 mb-6">
+                The National Empowerment and Development Agency (NEADS) is a non-governmental organization, registered as a society under the Societies Registration Act, XXI of 1860 in December 2018 with a commitment to community development.
+              </p>
+              <p className="text-lg text-gray-600 mb-6">
+                The agency emphasizes sustainable and inclusive growth with a focus on water and sanitation, environmental sustainability, and the empowerment of women and marginalized groups.
+              </p>
+              <p className="text-lg text-gray-600">
+                NEADS actively engages in various project implementation, capacity building, and research-driven interventions in partnership with local communities, government departments, and development stakeholders.
+              </p>
+            </motion.div>
+            <motion.div 
+              variants={scaleUp} 
+              className="relative h-96 rounded-2xl overflow-hidden shadow-xl"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" 
+                alt="Community development" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-8 text-white">
+                <h3 className="text-2xl font-bold mb-2">Our Integrated Approach</h3>
+                <p>Addressing essential development sectors for long-term transformation</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Vision & Mission */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-blue-600 to-blue-800 text-white p-8 rounded-2xl shadow-xl"
+            >
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                  <FiAward className="text-2xl text-white" />
+                </div>
+                <h3 className="text-2xl font-bold">Our Vision</h3>
+              </div>
+              <p className="text-lg">
+                To build empowered and sustainable communities through development initiatives rooted in equity, inclusion, and environmental responsibility.
+              </p>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-green-600 to-green-800 text-white p-8 rounded-2xl shadow-xl"
+            >
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                  <FiBook className="text-2xl text-white" />
+                </div>
+                <h3 className="text-2xl font-bold">Our Mission</h3>
+              </div>
+              <p className="text-lg">
+                To work with communities and empower deprived groups—particularly women—by promoting sustainable socio-economic development with a strong focus on water, environmental sanitation, and environmental responsibility.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Focus Areas */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <SectionTitle 
+            title="Our Key Focus Areas" 
+            subtitle="MAKING A DIFFERENCE IN MULTIPLE SECTORS"
+          />
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"
+          >
+            {[
+              {
+                title: "Water Supply & IWRM",
+                icon: <FiDroplet className="text-3xl" />,
+                desc: "Integrated Water Resource Management for sustainable water solutions.",
+                color: "from-blue-500 to-blue-600"
+              },
+              {
+                title: "Sanitation & Hygiene",
+                icon: "🧼",
+                desc: "Promoting environmental hygiene and sanitation practices.",
+                color: "from-green-500 to-green-600"
+              },
+              {
+                title: "Waste Management",
+                icon: "🗑️",
+                desc: "Effective solid and liquid waste management systems.",
+                color: "from-yellow-500 to-yellow-600"
+              },
+              {
+                title: "Women in Development",
+                icon: "👩",
+                desc: "Empowering women through various development initiatives.",
+                color: "from-pink-500 to-pink-600"
+              },
+              {
+                title: "Capacity Building",
+                icon: "📚",
+                desc: "Skill enhancement and training programs.",
+                color: "from-purple-500 to-purple-600"
+              },
+              {
+                title: "Livelihood Support",
+                icon: "🤝",
+                desc: "Promoting and supporting sustainable livelihoods.",
+                color: "from-indigo-500 to-indigo-600"
+              }
+            ].map((item, index) => (
+              <motion.div 
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
+                className={`bg-gradient-to-br ${item.color} text-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all`}
+              >
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h4 className="text-xl font-bold mb-3">{item.title}</h4>
+                <p>{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Projects Showcase */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <SectionTitle 
+            title="Our Featured Projects" 
+            subtitle="TRANSFORMING COMMUNITIES THROUGH ACTION"
+          />
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-8 mt-12"
+          >
+            {[
+              {
+                title: "Clean Water Initiative",
+                desc: "Providing access to clean drinking water in rural communities",
+                img: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80"
+              },
+              {
+                title: "Women's Skill Development",
+                desc: "Vocational training programs for women's economic empowerment",
+                img: "https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+              },
+              {
+                title: "Sanitation Awareness",
+                desc: "Community education programs on hygiene and sanitation",
+                img: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              }
+            ].map((project, index) => (
+              <motion.div 
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ scale: 1.02 }}
+                className="group overflow-hidden rounded-2xl shadow-lg"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={project.img} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                </div>
+                <div className="p-6 bg-white">
+                  <h4 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h4>
+                  <p className="text-gray-600 mb-4">{project.desc}</p>
+                  <button className="text-blue-600 font-medium flex items-center gap-2">
+                    Learn More <FiArrowRight />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-blue-600 text-white">
+        <div className="container mx-auto px-6">
+          <SectionTitle 
+            title="Success Stories" 
+            subtitle="IMPACT IN THE WORDS OF THOSE WE SERVE"
+            light
+          />
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-8 mt-12"
+          >
+            {[
+              {
+                quote: "NEADS transformed our village with clean water access. Our children are healthier now.",
+                author: "Ramesh Kumar",
+                role: "Village Leader"
+              },
+              {
+                quote: "The women's training program gave me skills to start my own tailoring business.",
+                author: "Sunita Devi",
+                role: "Entrepreneur"
+              },
+              {
+                quote: "Their sanitation awareness changed our community's hygiene practices dramatically.",
+                author: "Dr. Anjali Patel",
+                role: "Community Health Worker"
+              }
+            ].map((testimonial, index) => (
+              <motion.div 
+                key={index}
+                variants={fadeInUp}
+                className="bg-white/10 p-8 rounded-xl backdrop-blur-sm border border-white/20"
+              >
+                <div className="text-xl mb-6 leading-relaxed">"{testimonial.quote}"</div>
+                <div className="font-bold">{testimonial.author}</div>
+                <div className="text-white/80">{testimonial.role}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Target Groups */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <SectionTitle 
+            title="Our Target Groups" 
+            subtitle="REACHING THOSE WHO NEED IT MOST"
+          />
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
+          >
+            {[
+              "Rural and Urban Communities",
+              "Women and Self-Help Groups (SHGs)",
+              "Youth and Marginalized Populations",
+              "Local Governance Institutions and Development Partners"
+            ].map((group, index) => (
+              <motion.div 
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ y: -5 }}
+                className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all"
+              >
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 text-blue-600">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-medium text-gray-800">{group}</h4>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div className="container mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Make a Difference?</h2>
+            <p className="text-xl mb-8 max-w-3xl mx-auto">
+              Join us in our mission to empower communities through sustainable development initiatives.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 bg-white text-blue-600 rounded-full font-bold shadow-lg"
+              >
+                Partner With Us
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 border-2 border-white text-white rounded-full font-bold"
+              >
+                Donate Now
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
