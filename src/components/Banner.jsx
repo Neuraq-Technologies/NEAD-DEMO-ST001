@@ -4,13 +4,13 @@ import { XMarkIcon } from '@heroicons/react/24/solid';
 
 const Banner = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const [isBlinking, setIsBlinking] = useState(true);
+  const [currentDate, setCurrentDate] = useState(new Date());
 
-  // Blinking effect for the text
+  // Update date every minute (optional)
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsBlinking(prev => !prev);
-    }, 1000); // Blink every second
+      setCurrentDate(new Date());
+    }, 60000);
 
     return () => clearInterval(interval);
   }, []);
@@ -24,23 +24,27 @@ const Banner = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -50 }}
         transition={{ duration: 0.5 }}
-        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 px-4 relative"
+        className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-3 px-4 relative shadow-md"
       >
-        <div className="container mx-auto flex justify-between items-center">
-          <motion.p 
-            className="text-sm md:text-base text-white"
-            animate={{ opacity: isBlinking ? 1 : 0.5 }}
-            transition={{ duration: 0.5 }}
-          >
-            Join us in empowering communities for sustainable development!
-          </motion.p>
-          <button 
-            onClick={() => setIsVisible(false)}
-            className="p-1 rounded-full hover:bg-blue-700 transition-colors"
-            aria-label="Close banner"
-          >
-            <XMarkIcon className="h-5 w-5" />
-          </button>
+        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+          <div className="text-center md:text-left">
+            <h2 className="text-lg font-bold tracking-tight">National Empowerment and Development Agency</h2>
+            <p className="text-sm font-medium opacity- text-yellow-950">
+              Inauguration – {currentDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+            </p>
+          </div>
+          <div className="flex items-center space-x-4">
+            <p className="text-sm font-semibold hidden sm:block text-white">
+              Join the Movement. Empower the Nation.
+            </p>
+            <button 
+              onClick={() => setIsVisible(false)}
+              className="p-1 rounded-full hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+              aria-label="Close banner"
+            >
+              <XMarkIcon className="h-5 w-5" />
+            </button>
+          </div>
         </div>
       </motion.div>
     </AnimatePresence>

@@ -85,20 +85,6 @@ const Home = () => {
             </motion.div>
           </motion.div>
         </motion.div>
-
-        <motion.div 
-          animate={{ 
-            y: [0, -15, 0],
-            transition: { 
-              duration: 3, 
-              repeat: Infinity,
-              ease: "easeInOut"
-            }
-          }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="animate-bounce w-10 h-10 border-4 border-blue-600 rounded-full"></div>
-        </motion.div>
       </section>
 
       {/* Stats Section */}
@@ -170,8 +156,8 @@ const Home = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8 text-white">
-                <h3 className="text-2xl font-bold mb-2">Our Integrated Approach</h3>
-                <p>Addressing essential development sectors for long-term transformation</p>
+                <h3 className="text-2xl font-bold mb-2 text-white">Our Integrated Approach</h3>
+                <p className='text-white'>Addressing essential development sectors for long-term transformation</p>
               </div>
             </motion.div>
           </motion.div>
@@ -193,9 +179,9 @@ const Home = () => {
                 <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
                   <FiAward className="text-2xl text-white" />
                 </div>
-                <h3 className="text-2xl font-bold">Our Vision</h3>
+                <h3 className="text-2xl font-bold text-white">Our Vision</h3>
               </div>
-              <p className="text-lg">
+              <p className="text-lg text-white">
                 To build empowered and sustainable communities through development initiatives rooted in equity, inclusion, and environmental responsibility.
               </p>
             </motion.div>
@@ -211,9 +197,9 @@ const Home = () => {
                 <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
                   <FiBook className="text-2xl text-white" />
                 </div>
-                <h3 className="text-2xl font-bold">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-white">Our Mission</h3>
               </div>
-              <p className="text-lg">
+              <p className="text-lg text-white">
                 To work with communities and empower deprived groups—particularly women—by promoting sustainable socio-economic development with a strong focus on water, environmental sanitation, and environmental responsibility.
               </p>
             </motion.div>
@@ -281,8 +267,8 @@ const Home = () => {
                 className={`bg-gradient-to-br ${item.color} text-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all`}
               >
                 <div className="text-4xl mb-4">{item.icon}</div>
-                <h4 className="text-xl font-bold mb-3">{item.title}</h4>
-                <p>{item.desc}</p>
+                <h4 className="text-xl font-bold mb-3 ">{item.title}</h4>
+                <p className='text-neutral-200'>{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -338,9 +324,9 @@ const Home = () => {
                 <div className="p-6 bg-white">
                   <h4 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h4>
                   <p className="text-gray-600 mb-4">{project.desc}</p>
-                  <button className="text-blue-600 font-medium flex items-center gap-2">
+                  {/* <button className="text-blue-600 font-medium flex items-center gap-2">
                     Learn More <FiArrowRight />
-                  </button>
+                  </button> */}
                 </div>
               </motion.div>
             ))}
@@ -446,7 +432,7 @@ const Home = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Make a Difference?</h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto">
+            <p className="text-xl mb-8 max-w-3xl mx-auto text-neutral-200">
               Join us in our mission to empower communities through sustainable development initiatives.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

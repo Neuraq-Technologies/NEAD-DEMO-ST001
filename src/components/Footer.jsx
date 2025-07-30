@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import './Footer.css'; // We'll create this CSS file
+import logo from '../assets/img/loigo-l-r.png'
+import { FaWhatsapp, FaInstagram, FaEnvelope, FaPhone } from 'react-icons/fa';
 
 const Footer = () => {
   const fadeIn = {
@@ -8,8 +11,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
-      <div className="container mx-auto px-6">
+    <footer className="footer">
+      <div className="footer-container">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -23,64 +26,88 @@ const Footer = () => {
               }
             }
           }}
-          className="grid md:grid-cols-4 gap-12"
+          className="footer-content"
         >
-          <motion.div variants={fadeIn}>
-            <Link to="/" className="flex items-center mb-6">
+          <motion.div variants={fadeIn} className="footer-brand">
+            <Link to="/" className="footer-logo">
               <img 
-                src="https://via.placeholder.com/180x60?text=NEADS+Logo" 
+                src={logo} 
                 alt="NEADS Logo" 
-                className="h-10"
+                className="footer-logo-img"
               />
             </Link>
-            <p className="text-gray-400 mb-4">
+            <p className="footer-description">
               Empowering communities through sustainable development initiatives.
             </p>
-            <div className="flex space-x-4">
-              {['facebook', 'twitter', 'linkedin', 'instagram'].map((social) => (
-                <a 
-                  key={social} 
-                  href="#" 
-                  className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors"
-                  aria-label={social}
-                >
-                  <span className="sr-only">{social}</span>
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d={`M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z`} />
-                  </svg>
-                </a>
-              ))}
+            <div className="footer-social">
+            <a 
+    key="whatsapp" 
+    href="#" 
+    className="footer-social-link"
+    aria-label="whatsapp"
+  >
+    <span className="sr-only">whatsapp</span>
+    <FaWhatsapp className="footer-social-icon" />
+  </a>
+
+  {/* Instagram */}
+  <a 
+    key="instagram" 
+    href="#" 
+    className="footer-social-link"
+    aria-label="instagram"
+  >
+    <span className="sr-only">instagram</span>
+    <FaInstagram className="footer-social-icon" />
+  </a>
+
+  {/* Email */}
+  <a 
+    key="email" 
+    href="mailto:example@example.com" 
+    className="footer-social-link"
+    aria-label="email"
+  >
+    <span className="sr-only">email</span>
+    <FaEnvelope className="footer-social-icon" />
+  </a>
+
+  {/* Phone */}
+  <a 
+    key="phone" 
+    href="tel:+1234567890" 
+    className="footer-social-link"
+    aria-label="phone"
+  >
+    <span className="sr-only">phone</span>
+    <FaPhone className="footer-social-icon" />
+  </a>
             </div>
           </motion.div>
 
-          <motion.div variants={fadeIn}>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/projects" className="text-gray-400 hover:text-white transition-colors">Our Projects</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-          </motion.div>
-
-          <motion.div variants={fadeIn}>
-            <h3 className="text-lg font-semibold mb-4">Focus Areas</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Water Supply</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Sanitation</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Waste Management</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Women Empowerment</a></li>
-            </ul>
-          </motion.div>
-
-          <motion.div variants={fadeIn}>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-            <address className="not-italic text-gray-400 space-y-2">
-              <p>123 Development Avenue</p>
-              <p>Empowerment City, EC 12345</p>
-              <p>Email: info@neads.org</p>
-              <p>Phone: +1 (123) 456-7890</p>
+          <motion.div variants={fadeIn} className="footer-contact">
+            <h3 className="footer-heading">Contact Info</h3>
+            <address className="footer-address">
+              <p>First floor PAG Tower Chinakkal Sirhind Nagar, Cherushola (Po),Chenakkal, Kottakkal, Malappuram  Kerala  676510</p>
+              <p></p>
+              {/* <p>Email: info@neads.org</p> */}
+              <p>Phone: +91 99477 81850</p>
             </address>
+          </motion.div>
+
+          <motion.div variants={fadeIn} className="footer-map">
+            <h3 className="footer-heading">Our Location</h3>
+            <div className="map-container">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2155732918666!2d-73.9878449241646!3d40.74844097138989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1623861234567!5m2!1sen!2sus" 
+                width="100%" 
+                height="150" 
+                style={{ border: 0 }}
+                allowFullScreen="" 
+                loading="lazy"
+                title="NEADS Location"
+              ></iframe>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -89,9 +116,9 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           viewport={{ once: true }}
-          className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500"
+          className="footer-copyright"
         >
-          <p>&copy; {new Date().getFullYear()} National Empowerment and Development Agency. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} NeadsIndia. All rights reserved. Developed by Neuraq Technologies</p>
         </motion.div>
       </div>
     </footer>
