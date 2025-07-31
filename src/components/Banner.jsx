@@ -26,23 +26,23 @@ const Banner = () => {
         transition={{ duration: 0.5 }}
         className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-3 px-4 relative shadow-md"
       >
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-          <div className="text-center md:text-left">
-            <h2 className="text-lg font-bold tracking-tight">National Empowerment and Development Agency</h2>
-            <p className="text-sm font-medium opacity- text-yellow-950">
+        <div className="container mx-auto flex items-center justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-medium text-yellow-950 truncate">
               Inauguration – {currentDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
             </p>
           </div>
-          <div className="flex items-center space-x-4">
-            <p className="text-sm font-semibold hidden sm:block text-white">
+          
+          <div className="flex items-center gap-4 flex-shrink-0">
+            <p className="text-sm font-semibold text-white hidden sm:block">
               Join the Movement. Empower the Nation.
             </p>
             <button 
               onClick={() => setIsVisible(false)}
-              className="p-1 rounded-full hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+              className="p-1 rounded-full hover:bg-blue-800 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 flex-shrink-0"
               aria-label="Close banner"
             >
-              <XMarkIcon className="h-5 w-5" />
+              <XMarkIcon className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import logo2 from '../assets/img/loigo-l-r.png';
+import logo2 from '../assets/img/loigo-l-r-nav.png';
 import './Navbar.css'; // We'll create this CSS file
 
 const Navbar = () => {
@@ -69,7 +69,7 @@ useEffect(() => {
             
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link 
-                to="/contact" 
+                to="https://wa.me/919947781850" 
                 className={`navbar-contact-button ${scrolled ? 'scrolled' : ''}`}
               >
                 Contact Us
@@ -80,12 +80,12 @@ useEffect(() => {
 
         {/* Mobile Navigation */}
         <div className={`navbar-mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
-          <Link to="/about" className="navbar-mobile-link" onClick={toggleMobileMenu}>About</Link>
+          {/* <Link to="/about" className="navbar-mobile-link" onClick={toggleMobileMenu}>About</Link>
           <Link to="/services" className="navbar-mobile-link" onClick={toggleMobileMenu}>Services</Link>
           <Link to="/portfolio" className="navbar-mobile-link" onClick={toggleMobileMenu}>Portfolio</Link>
-          <Link to="/blog" className="navbar-mobile-link" onClick={toggleMobileMenu}>Blog</Link>
+          <Link to="/blog" className="navbar-mobile-link" onClick={toggleMobileMenu}>Blog</Link> */}
           <Link 
-            to="/contact" 
+            to="https://wa.me/919947781850" 
             className="navbar-mobile-contact-button"
             onClick={toggleMobileMenu}
           >
