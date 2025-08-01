@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/SectionTitle';
 import Banner from '../components/Banner';
+import aboutImg from '../assets/img/about.jpg'
+import waterImg from '../assets/img/w-i-1.jpg'
+import womenImg from '../assets/img/w-s-d-e.jpg'
+import saImg from '../assets/img/s-a.jpg'
+
 import { FiArrowRight, FiUsers, FiDroplet, FiAward, FiBook, FiShield, FiHeart } from 'react-icons/fi';
 
 const Home = () => {
@@ -101,7 +106,7 @@ const Home = () => {
               { number: "50+", label: "Projects Completed", icon: <FiAward className="text-3xl" /> },
               { number: "10K+", label: "People Empowered", icon: <FiUsers className="text-3xl" /> },
               { number: "100+", label: "Communities Served", icon: <FiHeart className="text-3xl" /> },
-              { number: "5+", label: "Years of Service", icon: <FiShield className="text-3xl" /> }
+              { number: "7+", label: "Years of Service", icon: <FiShield className="text-3xl" /> }
             ].map((stat, index) => (
               <motion.div 
                 key={index}
@@ -150,7 +155,7 @@ const Home = () => {
               className="relative h-96 rounded-2xl overflow-hidden shadow-xl"
             >
               <img 
-                src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" 
+                src={aboutImg} 
                 alt="Community development" 
                 className="w-full h-full object-cover"
               />
@@ -294,17 +299,17 @@ const Home = () => {
               {
                 title: "Clean Water Initiative",
                 desc: "Providing access to clean drinking water in rural communities",
-                img: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80"
+              img: waterImg
               },
               {
                 title: "Women's Skill Development",
                 desc: "Vocational training programs for women's economic empowerment",
-                img: "https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+                img: womenImg
               },
               {
                 title: "Sanitation Awareness",
                 desc: "Community education programs on hygiene and sanitation",
-                img: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                img: saImg
               }
             ].map((project, index) => (
               <motion.div 
