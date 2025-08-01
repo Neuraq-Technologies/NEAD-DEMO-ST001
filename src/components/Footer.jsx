@@ -91,22 +91,22 @@ const Footer = () => {
               <p>First floor PAG Tower Chinakkal Sirhind Nagar, Cherushola (Po),Chenakkal, Kottakkal, Malappuram  Kerala  676510</p>
               <p></p>
               {/* <p>Email: info@neads.org</p> */}
-              <p>Phone: +91 99477 81850</p>
+              <p>Phone: +91 9746537250</p>
             </address>
           </motion.div>
 
           <motion.div variants={fadeIn} className="footer-map">
             <h3 className="footer-heading">Our Location</h3>
             <div className="map-container">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2155732918666!2d-73.9878449241646!3d40.74844097138989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1623861234567!5m2!1sen!2sus" 
-                width="100%" 
-                height="150" 
-                style={{ border: 0 }}
-                allowFullScreen="" 
-                loading="lazy"
-                title="NEADS Location"
-              ></iframe>
+      <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.841104225539!2d76.0053724!3d10.9746924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDU4JzI4LjkiTiA3NsKwMDAnMjguNiJF!5e0!3m2!1sen!2sus!4v1623861234567!5m2!1sen!2sus" 
+  width="100%" 
+  height="150" 
+  
+  allowfullscreen="" 
+  loading="lazy" 
+  title="Location at 10°58'28.9E"
+></iframe>
             </div>
           </motion.div>
         </motion.div>
