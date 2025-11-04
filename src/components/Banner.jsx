@@ -29,13 +29,13 @@ const Banner = () => {
         <div className="container mx-auto flex items-center justify-between gap-4">
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium text-yellow-950 truncate">
-              Inauguration – {currentDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+              Join the Movement.
             </p>
           </div>
           
           <div className="flex items-center gap-4 flex-shrink-0">
             <p className="text-sm font-semibold text-white hidden sm:block">
-              Join the Movement. Empower the Nation.
+              Empower the Nation.
             </p>
             <button 
               onClick={() => setIsVisible(false)}
