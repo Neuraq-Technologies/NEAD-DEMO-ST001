@@ -513,21 +513,29 @@ const Home = () => {
               development initiatives.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <motion.button
+              <motion.a
+                href="https://wa.me/919947781850?text=Hi%20there!%20I%20am%20interested%20in%20partnering%20with%20you."
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 bg-white text-blue-600 rounded-full font-bold shadow-lg"
               >
                 Partner With Us
-              </motion.button>
-              <motion.button
+              </motion.a>
+
+              <motion.a
+                href="https://wa.me/919947781850?text=Hi!%20I%20would%20like%20to%20donate%20and%20support%20your%20initiative."
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 border-2 border-white text-white rounded-full font-bold"
               >
                 Donate Now
-              </motion.button>
+              </motion.a>
             </div>
+
           </motion.div>
         </div>
       </section>
